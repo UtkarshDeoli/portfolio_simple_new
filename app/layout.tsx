@@ -202,8 +202,7 @@ export const metadata: Metadata = {
   verification: {
     google: "google-site-verification-code",
   },
-  category: "technology",
-  generator: 'v0.dev'
+  category: "technology"
 }
 
 export default function RootLayout({
