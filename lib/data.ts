@@ -122,12 +122,12 @@ export const services = [
     price: "Open to Offers",
     type: "employment",
     description: "Looking for full-time opportunities as a Software Developer",
-    features: ["Full-Stack Development", "Mobile Development", "DevOps Engineering", "Team Collaboration"]
+    features: ["Full Stack AI","Full Stack Web", "Mobile Development", "DevOps"]
   },
   {
     name: "Website Development",
     emoji: "🌐",
-    price: "From $800",
+    price: "From $300",
     type: "website",
     description: "Custom websites and web applications built with modern technologies",
     features: ["Responsive Design", "SEO Optimized", "Fast Performance", "CMS Integration"]
@@ -135,18 +135,18 @@ export const services = [
   {
     name: "Mobile App Development",
     emoji: "📱",
-    price: "From $1,200",
+    price: "From $500",
     type: "mobile",
     description: "Native and cross-platform mobile applications for iOS and Android",
-    features: ["Flutter", "React Native", "Firebase Integration", "App Store Deploy"]
+    features: ["Flutter", "React Native", "App Publishing", "Payment Integration"]
   },
   {
     name: "Embedded Development",
     emoji: "🔧",
-    price: "From $600",
+    price: "From $200",
     type: "embedded",
-    description: "IoT solutions and embedded systems using ESP32/ESP8266",
-    features: ["ESP32/ESP8266", "Sensor Integration", "Real-time Data", "Remote Monitoring"]
+    description: "IoT solutions and embedded systems using ESP32/ESP8266, Raspberry Pi and more",
+    features: ["ESP32/ESP8266", "Remote Monitoring", "Real-time Data", "Automation"]
   },
   {
     name: "AI Automation",
@@ -154,7 +154,7 @@ export const services = [
     price: "From $500",
     type: "ai",
     description: "Intelligent automation solutions to streamline your workflows",
-    features: ["Process Automation", "Data Analysis", "ML Models", "API Integration"]
+    features: ["Workflow Automation", "LLM Models", "API Integration", "Data Analysis"]
   },
   {
     name: "AI Chatbots",
@@ -162,7 +162,7 @@ export const services = [
     price: "From $400",
     type: "chatbot",
     description: "Smart conversational AI powered by modern language models",
-    features: ["Natural Language", "24/7 Support", "Multi-platform", "Custom Training"]
+    features: ["Fully Customized", "Multi Lingual", "Voice to Voice", "Custom Training"]
   },
   {
     name: "E-commerce Solutions",
@@ -173,12 +173,12 @@ export const services = [
     features: ["Payment Gateway", "Inventory Management", "Admin Dashboard", "Mobile Responsive"]
   },
   {
-    name: "Technical Consulting",
+    name: "App / Website Maintenance",
     emoji: "🎯",
-    price: "From $80/hour",
+    price: "From $8/hour",
     type: "consulting",
-    description: "Expert guidance on architecture, code review, and best practices",
-    features: ["Code Review", "Architecture Design", "Performance Optimization", "Team Mentoring"]
+    description: "Ongoing support and maintenance for your applications and websites",
+    features: ["Code Review", "SEO", "Performance Optimization", "Security Audits", "Bug Fixes"]
   }
 ]
 

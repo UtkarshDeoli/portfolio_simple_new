@@ -29,7 +29,7 @@ export default function Header() {
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button> */}
           <Button asChild variant="outline" size="sm" className="border-gray-700 text-gray-300 bg-transparent hover:bg-gray-800">
-            <a href="/resume.pdf" download>
+            <a href="https://drive.google.com/file/d/1tZvVWMhek2yleZh7_EYjeG20Bk6EA7A3/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <Download className="mr-2 h-4 w-4" />
               Resume
             </a>
