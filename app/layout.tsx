@@ -7,8 +7,8 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Utkarsh Deoli | Full Stack Developer",
-  description: "Portfolio of Utkarsh Deoli, a Full Stack Developer specializing in modern web technologies.",
+  title: "Utkarsh Deoli | Developer",
+  description: "Portfolio of Utkarsh Deoli, a Developer specializing in modern web technologies, AI, Mobile Application Development and DevOps.",
   keywords: [
     "Utkarsh Deoli",
     "Full Stack Developer",
@@ -180,22 +180,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://utkarshdeoli.in",
-    title: "Utkarsh Deoli | Full Stack Developer",
-    description: "Portfolio of Utkarsh Deoli, a Full Stack Developer specializing in modern web technologies.",
+    title: "Utkarsh Deoli | Developer Portfolio",
+    description: "Portfolio of Utkarsh Deoli, a Developer specializing in modern web technologies.",
     siteName: "Utkarsh Deoli Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Utkarsh Deoli - Full Stack Developer",
+        alt: "Utkarsh Deoli - Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utkarsh Deoli | Full Stack Developer",
-    description: "Portfolio of Utkarsh Deoli, a Full Stack Developer specializing in modern web technologies.",
+    title: "Utkarsh Deoli | Developer Portfolio",
+    description: "Portfolio of Utkarsh Deoli, a Developer specializing in modern web technologies.",
     creator: "@utkarshdeoli",
     images: ["/og-image.png"],
   },
