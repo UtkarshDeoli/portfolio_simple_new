@@ -63,7 +63,7 @@ This project is open source and available under the MIT License.
 
 ## 📧 Contact
 
-- **Email**: contact@utkarshdeoli.in
+- **Email**: utkarsh.deoli@gmail.com
 - **GitHub**: [@utkarshdeoli](https://github.com/utkarshdeoli)
 - **LinkedIn**: [utkarshdeoli](https://linkedin.com/in/utkarshdeoli)
 
