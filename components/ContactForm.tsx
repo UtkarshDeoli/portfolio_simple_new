@@ -199,18 +199,18 @@ export function ContactCards() {
       className="py-16"
     >
       <h2 className="text-2xl font-bold mb-12 text-white">Get In Touch</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <ContactForm
+      <div className="grid grid-cols-1  gap-8">
+        {/* <ContactForm
           type="email"
           title="Send Email"
           description="Send me an email for business inquiries, collaborations, or professional opportunities."
           icon={<Mail className="h-6 w-6" />}
-        />
+        /> */}
         <ContactForm
           type="dm"
           title="Send Message"
-          description="Quick message for casual conversations, questions, or just to say hello!"
-          icon={<MessageCircle className="h-6 w-6" />}
+          description="Quick message for casual conversations, feedback, questions, or just to say hello!"
+          icon={<Mail className="h-6 w-6" />}
         />
       </div>
     </motion.section>

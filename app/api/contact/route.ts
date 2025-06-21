@@ -1,9 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
+const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN
+const telegramChatId = process.env.TELEGRAM_CHAT_ID
+
+
+
 
 export async function POST(request: NextRequest) {
   try {
     const { type, name, email, subject, message } = await request.json()
-
+    // console.log('Received contact form data:', {
+    //   type,
+    //   name,
+    //   email,
+    //   subject,
+    //   message
+    // });
     // Basic validation
     if (!name || !email || !message || !type) {
       return NextResponse.json(
@@ -21,15 +32,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Here you would implement the actual email/message sending logic
-    // Options:
-    // 1. Use Nodemailer with Gmail/SMTP
-    // 2. Use SendGrid
-    // 3. Use Resend
-    // 4. Use AWS SES
-    // 5. For DMs, integrate with Discord, Slack, or Telegram APIs
-
-    // For now, we'll just log the data and simulate success
+    // Log the contact form submission
     console.log('Contact form submission:', {
       type,
       name,
@@ -39,40 +42,117 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString()
     })
 
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 1000))
-
-    // TODO: Replace with actual email/messaging service implementation
-    // Example with Nodemailer:
-    /*
-    const nodemailer = require('nodemailer')
+    // If Telegram bot token or chat ID is not set, skip sending Telegram message
     
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
-    })
-
-    const mailOptions = {
-      from: email,
-      to: 'utkarsh.deoli@gmail.com',
-      subject: `Portfolio Contact: ${subject || 'New Message'}`,
-      html: `
-        <h3>New ${type} from Portfolio</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Type:</strong> ${type}</p>
-        ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ''}
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `
+    if (!telegramBotToken || !telegramChatId) {
+      console.warn(
+        'Telegram bot token or chat ID not found in environment variables.'
+      )
+      return NextResponse.json(
+        {
+          success: true,
+          message: `${
+            type === 'email' ? 'Email' : 'Message'
+          } sent successfully! (Telegram integration not configured)`
+        },
+        { status: 200 }
+      )
     }
 
-    await transporter.sendMail(mailOptions)
-    */
+    try {
+      // Validate environment variables format
+      if (!telegramBotToken.includes(':')) {
+        console.error('Invalid Telegram bot token format')
+        return NextResponse.json(
+          {
+            success: true,
+            message: `${
+              type === 'email' ? 'Email' : 'Message'
+            } received successfully! (Telegram configuration error)`
+          },
+          { status: 200 }
+        )
+      }
 
+      // Sanitize the message to prevent Telegram API issues
+      const sanitizeText = (text: string) => {
+        return text
+          .replace(/[<>&]/g, (match) => {
+            switch (match) {
+              case '<': return '&lt;'
+              case '>': return '&gt;'
+              case '&': return '&amp;'
+              default: return match
+            }
+          })
+          .replace(/[\u0000-\u001F\u007F]/g, '') // Remove control characters
+      }
+
+      const telegramMessage = `A ${type} Message From Portfolio:
+Name: ${sanitizeText(name)}
+Email: ${sanitizeText(email)}
+Subject: ${sanitizeText(subject || 'No subject')}
+Message:
+${sanitizeText(message)}`
+
+      // Ensure message isn't too long (Telegram limit is 4096 characters)
+      const truncatedMessage = telegramMessage.length > 4000 
+        ? telegramMessage.substring(0, 4000) + '...[message truncated]'
+        : telegramMessage
+
+      const telegramApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`
+
+      console.log('Sending to Telegram:', {
+        chatId: telegramChatId,
+        messageLength: truncatedMessage.length
+      })
+
+      const response = await fetch(telegramApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id: telegramChatId,
+          text: truncatedMessage
+        })
+      })
+
+      const responseData = await response.json()
+
+      if (!response.ok) {
+        console.error('Failed to send Telegram message:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: responseData
+        })
+        return NextResponse.json(
+          {
+            success: true,
+            message: `${
+              type === 'email' ? 'Email' : 'Message'
+            } received successfully! (Telegram notification failed: ${responseData.description || 'Unknown error'})`
+          },
+          { status: 200 }
+        )
+      } else {
+        console.log('Telegram message sent successfully!', responseData)
+      }
+    } catch (telegramError) {
+      console.error('Error sending Telegram message:', telegramError)
+      const errorMessage = telegramError instanceof Error ? telegramError.message : 'Unknown error'
+      return NextResponse.json(
+        {
+          success: true,
+          message: `${
+            type === 'email' ? 'Email' : 'Message'
+          } received successfully! (Telegram notification failed: ${errorMessage})`
+        },
+        { status: 200 }
+      )
+    }
+
+    // If everything is successful, return a success response
     return NextResponse.json(
       { 
         success: true, 

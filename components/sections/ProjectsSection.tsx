@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Link, Link2 } from "lucide-react"
+import { Github, Link, ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
 
 interface Project {
@@ -11,6 +11,7 @@ interface Project {
     technologies: string[]
     demo?: string
     github?: string
+    details?: string[]
 }
 
 interface ProjectsSectionProps {
@@ -19,8 +20,18 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
     const [visibleProjects, setVisibleProjects] = useState(Math.min(4, projects.length));
+    const [expandedProjects, setExpandedProjects] = useState<number[]>([]);
+    
     const showMore = () => {
         setVisibleProjects(projects.length);
+    };
+
+    const toggleExpanded = (index: number) => {
+        setExpandedProjects(prev => 
+            prev.includes(index) 
+                ? prev.filter(i => i !== index)
+                : [...prev, index]
+        );
     };
 
     return (
@@ -64,7 +75,48 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                                 )}
                             </div>
                         </div>
-                        <p className="text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+                        <p className="text-gray-400 mb-4 leading-relaxed">
+                            {project.description}
+                            {project.details && (
+                                <button
+                                    onClick={() => toggleExpanded(index)}
+                                    className="inline-flex text-regular items-center gap-1 ml-1 text-[#00ADB5] hover:text-[#00ADB5]/70 transition-colors"
+                                >
+                                    {expandedProjects.includes(index) ? (
+                                        <>
+                                            Show less
+                                            <ChevronUp className="h-3 w-3" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Read more
+                                            <ChevronDown className="h-3 w-3" />
+                                        </>
+                                    )}
+                                </button>
+                            )}
+                        </p>
+                        
+                        {/* Expandable Details Section */}
+                        {project.details && expandedProjects.includes(index) && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden mb-4"
+                            >
+                                <ul className="space-y-2 text-gray-400 text-sm">
+                                    {project.details.map((detail, detailIndex) => (
+                                        <li key={detailIndex} className="flex items-start gap-2">
+                                            <span className="text-[#00ADB5] mt-1.5 text-xs">•</span>
+                                            <span>{detail}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        )}
+                        
                         <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, techIndex) => (
                                 <span 
