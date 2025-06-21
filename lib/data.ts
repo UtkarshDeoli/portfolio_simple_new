@@ -58,14 +58,28 @@ export const projects = [
     technologies: ["NextJS", "FastAPI", "Gemini API" , "RAG", "Python"],
     demo: "https://utkarshdeoli.in",
     github: "https://github.com/utkarshdeoli",
+    details: [
+      "Integrated RAG (Retrieval-Augmented Generation) pipeline for enhanced AI responses",
+      "Developed adaptive mock test system that adjusts difficulty based on performance", 
+      "Implemented intelligent note summarization using Gemini API",
+      "Built previous year paper analysis with trend identification",
+      "Created personalized learning paths reducing study time by 30%"
+    ]
   },
   {
     name: "Survey Application",
     description:
-      "Developed a user-facing survey app with role-based access, location tracking, notifications, and chat support, enhancing data collection and user engagement.",
+      "Developed a user-facing survey app with role-based access, location tracking, notifications, and chat support, enhancing data collection and user engagement, Serving more than 30k users and 2 org. with a 99.9% uptime.",
     technologies: ["React Native", "Node.js"],
     demo: "https://utkarshdeoli.in",
     github: "https://github.com/utkarshdeoli",
+    details: [
+      "Implemented role-based access control for different user types",
+      "Added real-time location tracking for field surveys",
+      "Built push notification system for survey reminders",
+      "Integrated chat support for user assistance",
+      "Designed offline data sync for remote areas"
+    ]
   },
   {
     name: "Fitpick",
@@ -74,6 +88,13 @@ export const projects = [
     technologies: ["React Native", "Firebase", "Google Vertex AI"],
     demo: "https://utkarshdeoli.in",
     github: "https://github.com/utkarshdeoli",
+    details: [
+      "Built social media platform with weekly fitness challenges",
+      "Integrated Google Vertex AI for personalized apparel recommendations",
+      "Developed community features including likes, comments, and sharing",
+      "Created leaderboards and achievement systems",
+      "Implemented real-time chat and group challenges"
+    ]
   },
   {
     name: "Business Listing",
@@ -82,6 +103,13 @@ export const projects = [
     technologies: ["Flutter", "Pocketbase"],
     demo: "https://utkarshdeoli.in",
     github: "https://github.com/utkarshdeoli",
+    details: [
+      "Built comprehensive business directory with advanced search",
+      "Implemented geo-location based business discovery",
+      "Added real-time filtering by category, rating, and distance",
+      "Created business owner dashboard for listing management",
+      "Integrated review and rating system"
+    ]
   },
   {
     name: "Embedded IoT Solutions",
@@ -90,7 +118,59 @@ export const projects = [
     technologies: ["Python", "ESP8266", "ESP32", "MicroPython"],
     demo: "https://utkarshdeoli.in",
     github: "https://github.com/utkarshdeoli",
+    details: [
+      "Developed IoT sensors for environmental monitoring",
+      "Built remote control systems for home automation",
+      "Implemented real-time data collection and visualization",
+      "Created mobile app interfaces for device control",
+      "Designed low-power solutions for battery-operated devices"
+    ]
   },
+  {
+    name: "E-Commerce Platform",
+    description:
+      "Full-featured e-commerce platform with payment integration, inventory management, and admin dashboard. Built with modern technologies for scalability and performance.",
+    technologies: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
+    demo: "https://ecommerce-demo.utkarshdeoli.in",
+    github: "https://github.com/utkarshdeoli/ecommerce-platform",
+    details: [
+      "Integrated Stripe payment processing with webhook handling",
+      "Built comprehensive admin dashboard with analytics",
+      "Implemented inventory management with low-stock alerts",
+      "Created responsive design with mobile-first approach",
+      "Added advanced search and filtering capabilities"
+    ]
+  },
+  {
+    name: "Real-Time Chat Application",
+    description:
+      "Scalable real-time messaging application with group chats, file sharing, and online presence indicators. Built for high performance and reliability.",
+    technologies: ["Socket.io", "React", "MongoDB", "Redis"],
+    demo: "https://chat-app.utkarshdeoli.in",
+    github: "https://github.com/utkarshdeoli/realtime-chat",
+    details: [
+      "Implemented WebSocket connections for real-time messaging",
+      "Added group chat functionality with admin controls",
+      "Built file sharing with drag-and-drop interface",
+      "Created online presence and typing indicators",
+      "Integrated message encryption for security"
+    ]
+  },
+  {
+    name: "Task Management Dashboard",
+    description:
+      "Comprehensive project management tool with Kanban boards, team collaboration, and progress tracking. Designed for productivity and team coordination.",
+    technologies: ["Vue.js", "Express.js", "MongoDB", "Socket.io"],
+    demo: "https://taskmanager.utkarshdeoli.in",
+    github: "https://github.com/utkarshdeoli/task-manager",
+    details: [
+      "Built drag-and-drop Kanban board interface",
+      "Implemented team collaboration with real-time updates",
+      "Added project timeline and milestone tracking",
+      "Created detailed analytics and progress reports",
+      "Integrated notification system for task updates"
+    ]
+  }
 ];
 
 export const techStackWithIcons = [

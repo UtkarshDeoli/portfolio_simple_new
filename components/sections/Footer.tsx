@@ -23,7 +23,7 @@ export default function Footer() {
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-white">
-            <a href="mailto:contact@utkarshdeoli.in">
+            <a href="mailto:utkarsh.deoli@gmail.com">
               <Mail className="h-4 w-4" />
             </a>
           </Button>

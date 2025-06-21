@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection"
 import TechStackSection from "@/components/sections/TechStackSection"
 import ServicesSection from "@/components/sections/ServicesSection"
 import Footer from "@/components/sections/Footer"
+import { ContactCards } from "@/components/ContactForm"
 import { experiences, projects, techStackWithIcons, services } from "@/lib/data"
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <ExperienceSection experiences={experiences} />
         <TechStackSection techStack={techStackWithIcons} />
         <ServicesSection services={services} />
+        <ContactCards />
       </main>
 
       <Footer />

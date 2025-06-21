@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
@@ -31,6 +31,11 @@ export default function HeroSection() {
           <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-white">
             <a href="https://twitter.com/utkarshdeoli" target="_blank" rel="noopener noreferrer">
               <Twitter className="h-5 w-5" />
+            </a>
+          </Button>
+          <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+            <a href="https://leetcode.com/utkarshdeoli" target="_blank" rel="noopener noreferrer">
+              <Code className="h-5 w-5" />
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon" className="text-gray-400 hover:text-white">

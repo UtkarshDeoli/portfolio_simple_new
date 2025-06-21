@@ -57,6 +57,15 @@ npm run dev
 - **Tech Stack**: Technologies and tools
 - **Services**: Available services and contact
 
+## ✅ TODO
+
+- [x] Cards (forms) send DM and mail to me
+- [x] Add more projects
+- [ ] Deploy projects
+- [x] Add links to projects
+- [x] Projects details in bullet points + expandable read more options
+- [x] add one more socials that is leet code 
+
 ## 📝 License
 
 This project is open source and available under the MIT License.
@@ -68,5 +77,7 @@ This project is open source and available under the MIT License.
 - **LinkedIn**: [utkarshdeoli](https://linkedin.com/in/utkarshdeoli)
 
 ---
+
+
 
 Built with ❤️ by Utkarsh Deoli
