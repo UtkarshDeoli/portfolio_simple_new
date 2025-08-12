@@ -306,3 +306,99 @@ export const services = [
     ],
   },
 ];
+
+export const featuredProjects = [
+  {
+    id: "ai-exam-prep",
+    title: "AI Exam Preparation App",
+    description: "AI-driven exam preparation platform with adaptive mock tests, note summarization, and answer retrieval. Leveraged RAG pipeline with Gemini API for personalized learning.",
+    image: "/placeholder.jpg",
+    tags: ["NextJS", "FastAPI", "Gemini API", "RAG", "Python", "AI"],
+    githubUrl: "https://github.com/utkarshdeoli",
+    liveUrl: "https://utkarshdeoli.in",
+    featured: true,
+    status: "completed" as const,
+    type: "web" as const
+  },
+  {
+    id: "survey-app",
+    title: "Survey Application",
+    description: "Enterprise survey app with role-based access, location tracking, and chat support. Serving 30k+ users across 2 organizations with 99.9% uptime.",
+    image: "/placeholder.jpg", 
+    tags: ["React Native", "Node.js", "MongoDB", "Real-time"],
+    githubUrl: "https://github.com/utkarshdeoli",
+    appStoreUrl: "https://apps.apple.com/app/survey-app",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.utkarsh.survey",
+    featured: true,
+    status: "completed" as const,
+    type: "mobile" as const
+  },
+  {
+    id: "fitpick",
+    title: "Fitpick Social Fitness",
+    description: "Social media app for weekly fitness contests and AI-powered apparel search using Google Vertex AI for personalized recommendations.",
+    image: "/placeholder.jpg",
+    tags: ["React Native", "Firebase", "Google Vertex AI", "Social"],
+    githubUrl: "https://github.com/utkarshdeoli",
+    appStoreUrl: "https://apps.apple.com/app/fitpick",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.utkarsh.fitpick",
+    featured: true,
+    status: "completed" as const,
+    type: "mobile" as const
+  },
+  {
+    id: "business-listing",
+    title: "Business Listing Platform",
+    description: "Platform to discover nearby businesses with real-time search, filtering, and geo-location based discovery to drive local commerce.",
+    image: "/placeholder.jpg",
+    tags: ["Flutter", "Pocketbase", "Maps", "Geo-location"],
+    githubUrl: "https://github.com/utkarshdeoli",
+    appStoreUrl: "https://apps.apple.com/app/business-listing",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.utkarsh.business",
+    status: "completed" as const,
+    type: "mobile" as const
+  },
+  {
+    id: "iot-solutions",
+    title: "Embedded IoT Solutions", 
+    description: "Custom IoT solutions using ESP32/ESP8266 for environmental monitoring, home automation, and remote control systems.",
+    image: "/placeholder.jpg",
+    tags: ["Python", "ESP32", "ESP8266", "IoT", "MicroPython"],
+    githubUrl: "https://github.com/utkarshdeoli",
+    status: "in-progress" as const,
+    type: "embedded" as const
+  },
+  {
+    id: "ecommerce-platform",
+    title: "E-Commerce Platform",
+    description: "Full-featured e-commerce platform with Stripe integration, inventory management, and comprehensive admin dashboard.",
+    image: "/placeholder.jpg", 
+    tags: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
+    githubUrl: "https://github.com/utkarshdeoli/ecommerce-platform",
+    liveUrl: "https://ecommerce-demo.utkarshdeoli.in",
+    status: "completed" as const,
+    type: "web" as const
+  },
+  {
+    id: "realtime-chat",
+    title: "Real-Time Chat Application",
+    description: "Scalable messaging app with group chats, file sharing, online presence indicators, and end-to-end encryption.",
+    image: "/placeholder.jpg",
+    tags: ["Socket.io", "React", "MongoDB", "Redis"],
+    githubUrl: "https://github.com/utkarshdeoli/realtime-chat",
+    liveUrl: "https://chat-app.utkarshdeoli.in", 
+    status: "completed" as const,
+    type: "web" as const
+  },
+  {
+    id: "task-manager",
+    title: "Task Management Dashboard",
+    description: "Comprehensive project management tool with Kanban boards, team collaboration, progress tracking, and real-time updates.",
+    image: "/placeholder.jpg",
+    tags: ["Vue.js", "Express.js", "MongoDB", "Socket.io"],
+    githubUrl: "https://github.com/utkarshdeoli/task-manager",
+    liveUrl: "https://taskmanager.utkarshdeoli.in",
+    status: "completed" as const,
+    type: "web" as const
+  }
+];
