@@ -257,7 +257,7 @@ export default function FeaturedProjectsSection({ projects }: FeaturedProjectsSe
             </div>
 
             {/* Horizontal Scrollable Container */}
-            <div className="overflow-x-auto scrollbar-hide -mx-6 px-6">
+            <div className="overflow-x-auto overflow-y-hidden scrollbar-hide -mx-6 px-6">
                 <div className="flex gap-3 pb-4" style={{ width: 'max-content' }}>
                     {projects.map((project, index) => (
                         <div key={project.id} className="flex-none w-64">
