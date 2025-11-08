@@ -2,11 +2,11 @@
 
 import { memo } from "react"
 import { motion } from "framer-motion"
-import { IconType } from "react-icons"
+import * as SiIcons from "react-icons/si"
 
 interface TechItem {
     name: string
-    icon: IconType
+    icon: string
 }
 
 interface TechStackSectionProps {
@@ -15,6 +15,7 @@ interface TechStackSectionProps {
 
 const MemoizedTechItem = memo(
     ({ tech, index }: { tech: TechItem; index: number }) => {
+        const Icon = (SiIcons as any)[tech.icon]
         return (
             <motion.div
                 key={index}
@@ -25,7 +26,11 @@ const MemoizedTechItem = memo(
                 whileHover={{ y: -5, scale: 1.1 }}
                 className="group relative flex flex-col items-center justify-center py-4 rounded-lg bg-gray-900/30 backdrop-blur-sm hover:bg-gray-800/50 transition-all duration-300"
             >
-                <tech.icon className="h-8 w-8 text-gray-400 group-hover:text-white transition-colors" />
+                {Icon ? (
+                    <Icon className="h-8 w-8 text-gray-400 group-hover:text-white transition-colors" />
+                ) : (
+                    <div className="h-8 w-8" />
+                )}
                 <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                     {tech.name}
                 </div>

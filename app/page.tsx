@@ -1,6 +1,4 @@
-"use client"
-
-import { useState, useEffect } from "react"
+import React from "react"
 import Header from "@/components/sections/Header"
 import HeroSection from "@/components/sections/HeroSection"
 import ExperienceSection from "@/components/sections/ExperienceSection"
@@ -13,14 +11,6 @@ import { ContactCards } from "@/components/ContactForm"
 import { experiences, projects, featuredProjects, techStackWithIcons, services } from "@/lib/data"
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
-
   return (
     <div className="min-h-screen bg-[#222831] text-[#EEEEEE]">
       <Header />
