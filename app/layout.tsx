@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Utkarsh Deoli | Developer",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://utkarsh-portfolio-simple.vercel.app"),
   description: "Portfolio of Utkarsh Deoli, a Developer specializing in modern web technologies, AI, Mobile Application Development and DevOps.",
   keywords: [
     "Utkarsh Deoli",
