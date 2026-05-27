@@ -85,14 +85,14 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
             <div className="relative overflow-hidden rounded-2xl bg-[#393E46]/20 border border-[#393E46]/50 hover:border-[#00ADB5]/40 transition-all duration-500 backdrop-blur-sm h-[340px] flex flex-col">
                 {/* Project Type Badge */}
                 <div className="absolute top-3 left-3 z-10">
-                    <Badge className="bg-[#222831]/90 text-gray-300 border-0 text-[10px] font-medium px-1.5 py-0.5 flex items-center gap-1">
+                    <Badge className="bg-[#111010]/90 text-gray-300 border-0 text-[10px] font-medium px-1.5 py-0.5 flex items-center gap-1">
                         {getProjectTypeIcon(project.type)}
                         {getProjectTypeName(project.type)}
                     </Badge>
                 </div>
 
                 {/* Image Container */}
-                <div className="relative aspect-[4/2.5] overflow-hidden bg-gradient-to-br from-[#393E46]/30 to-[#222831]/30">
+                <div className="relative aspect-[4/2.5] overflow-hidden bg-gradient-to-br from-[#393E46]/30 to-[#111010]/30">
                     <Image
                         src={project.image}
                         alt={project.title}
@@ -105,14 +105,14 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                     />
                     
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#222831]/90 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111010]/90 via-transparent to-transparent opacity-60" />
                     
                     {/* Hover Overlay with Actions */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isHovered ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 bg-[#222831]/80 backdrop-blur-sm flex items-center justify-center gap-2"
+                        className="absolute inset-0 bg-[#111010]/80 backdrop-blur-sm flex items-center justify-center gap-2"
                     >
                         {project.liveUrl && (
                             <Button

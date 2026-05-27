@@ -9,7 +9,7 @@ export default function Header() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="fixed top-0 z-40 w-full bg-[#393E46]/80 backdrop-blur-sm border-b border-gray-800/50">
+    <header className="fixed top-0 z-40 w-full bg-[#101111]/80 backdrop-blur-sm border-b border-gray-800/50">
       <div className="max-w-2xl mx-auto px-6 flex h-16 items-center justify-between">
         <motion.div
           initial={{ opacity: 0 }}

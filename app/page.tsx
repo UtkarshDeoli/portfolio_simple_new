@@ -12,10 +12,10 @@ import { experiences, projects, featuredProjects, techStackWithIcons, services }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#222831] text-[#EEEEEE]">
-      <Header />
+    <div className="min-h-screen bg-[#111010] text-[#EEEEEE]">
+      {/* <Header /> */}
       
-      <main className="pt-24 pb-16">
+      <main className="pt-12 pb-16">
         <div className="max-w-2xl mx-auto px-6">
           <HeroSection />
           <FeaturedProjectsSection projects={featuredProjects} />
@@ -24,6 +24,7 @@ export default function Home() {
           <TechStackSection techStack={techStackWithIcons} />
           <ServicesSection services={services} />
           <ContactCards />
+          
         </div>
       </main>
 
