@@ -244,23 +244,46 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   const getServiceColor = useCallback((type: string) => {
     switch (type) {
       case "employment":
-        return "bg-blue-500/10 border-blue-500/20 hover:border-blue-400/40";
+        return "bg-status-info/10 border-status-info/20 hover:border-status-info/40";
       case "website":
-        return "bg-green-500/10 border-green-500/20 hover:border-green-400/40";
+        return "bg-status-available/10 border-status-available/20 hover:border-status-available/40";
       case "mobile":
         return "bg-purple-500/10 border-purple-500/20 hover:border-purple-400/40";
       case "embedded":
-        return "bg-orange-500/10 border-orange-500/20 hover:border-orange-400/40";
+        return "bg-status-warning/10 border-status-warning/20 hover:border-status-warning/40";
       case "ai":
-        return "bg-red-500/10 border-red-500/20 hover:border-red-400/40";
+        return "bg-status-busy/10 border-status-busy/20 hover:border-status-busy/40";
       case "chatbot":
         return "bg-pink-500/10 border-pink-500/20 hover:border-pink-400/40";
       case "ecommerce":
-        return "bg-yellow-500/10 border-yellow-500/20 hover:border-yellow-400/40";
+        return "bg-status-warning/10 border-status-warning/20 hover:border-status-warning/40";
       case "consulting":
-        return "bg-cyan-500/10 border-cyan-500/20 hover:border-cyan-400/40";
+        return "bg-primary/10 border-primary/20 hover:border-primary/40";
       default:
-        return "bg-gray-500/10 border-gray-500/20 hover:border-gray-400/40";
+        return "bg-background-tertiary/10 border-border/20 hover:border-border/40";
+    }
+  }, []);
+
+  const getServiceButtonColor = useCallback((type: string) => {
+    switch (type) {
+      case "employment":
+        return "hover:bg-status-info/20 hover:border-status-info/50";
+      case "website":
+        return "hover:bg-status-available/20 hover:border-status-available/50";
+      case "mobile":
+        return "hover:bg-purple-500/20 hover:border-purple-500/50";
+      case "embedded":
+        return "hover:bg-status-warning/20 hover:border-status-warning/50";
+      case "ai":
+        return "hover:bg-status-busy/20 hover:border-status-busy/50";
+      case "chatbot":
+        return "hover:bg-pink-500/20 hover:border-pink-500/50";
+      case "ecommerce":
+        return "hover:bg-status-warning/20 hover:border-status-warning/50";
+      case "consulting":
+        return "hover:bg-primary/20 hover:border-primary/50";
+      default:
+        return "hover:bg-background-tertiary/20 hover:border-border/50";
     }
   }, []);
 
@@ -277,7 +300,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
       viewport={{ once: true }}
       className="py-16"
     >
-      <h2 className="text-2xl font-bold mb-12 text-white">Services</h2>
+      <h2 className="text-2xl font-bold mb-12 text-foreground">Services</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {services.map((service, index) => (
@@ -297,10 +320,10 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-[#00ADB5] transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                       {service.name}
                     </h3>
-                    <p className="text-base font-bold text-[#00ADB5]">
+                    <p className="text-base font-bold text-primary">
                       {service.price}
                     </p>
                   </div>
@@ -311,13 +334,13 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-400 mb-4 leading-relaxed flex-1">
+              <p className="text-sm text-foreground-muted mb-4 leading-relaxed flex-1">
                 {service.description}
               </p>
 
               {/* Features */}
               <div className="space-y-3 mb-6">
-                <h4 className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                <h4 className="text-xs font-medium text-foreground-subtle uppercase tracking-wide">
                   Features
                 </h4>
                 <div className="space-y-1">
@@ -326,15 +349,15 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                     .map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="text-xs text-gray-400 flex items-start"
+                        className="text-xs text-foreground-muted flex items-start"
                       >
-                        <span className="w-1 h-1 bg-[#00ADB5] rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                        <span className="w-1 h-1 bg-primary rounded-full mr-2 mt-1.5 flex-shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   {service.features.length >
                     (isEmploymentCard(service.type) ? 4 : 3) && (
-                    <div className="text-xs text-gray-500 italic">
+                    <div className="text-xs text-foreground-subtle italic">
                       +
                       {service.features.length -
                         (isEmploymentCard(service.type) ? 4 : 3)}{" "}
@@ -348,10 +371,10 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               {/* CTA Button */}
               <div className="mt-auto">
                 <Dialog>
-                  <DialogTrigger asChild>
+                    <DialogTrigger asChild>
                     <Button
                       variant="neomorphicOutline"
-                      className="w-full"
+                      className={`w-full transition-all duration-300 ${getServiceButtonColor(service.type)}`}
                       onClick={() =>
                         setFormData((prev) => ({
                           ...prev,
@@ -363,16 +386,16 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                       {isEmploymentCard(service.type) ? "Hire Me" : "Get Quote"}
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="bg-gray-900/95 border-gray-700/50 backdrop-blur-xl max-w-md rounded-2xl">
+                  <DialogContent className="bg-background-secondary/95 border-border/50 backdrop-blur-xl max-w-md rounded-2xl">
                     <DialogHeader className="text-center pb-4">
-                      <DialogTitle className="text-xl font-bold text-white mb-2">
+                      <DialogTitle className="text-xl font-bold text-foreground mb-2">
                         {isEmploymentCard(service.type)
                           ? "Let's Work Together"
                           : "Get Started"}
                       </DialogTitle>
-                      <DialogDescription className="text-gray-400">
+                      <DialogDescription className="text-foreground-muted">
                         Interested in{" "}
-                        <span className="text-[#00ADB5] font-medium">
+                        <span className="text-primary font-medium">
                           {service.name}
                         </span>
                         ?
@@ -387,13 +410,13 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                     >
                       {isSubmitted ? (
                         <div className="flex flex-col items-center justify-center py-8 text-center">
-                          <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
-                            <AlertCircle className="h-6 w-6 text-green-500" />
+                          <div className="w-12 h-12 bg-status-available/20 rounded-full flex items-center justify-center mb-4">
+                            <AlertCircle className="h-6 w-6 text-status-available" />
                           </div>
-                          <h3 className="text-lg font-semibold text-white mb-2">
+                          <h3 className="text-lg font-semibold text-foreground mb-2">
                             Message Sent!
                           </h3>
-                          <p className="text-gray-400 text-sm">
+                          <p className="text-foreground-muted text-sm">
                             Thank you for your interest. I'll get back to you
                             soon.
                           </p>
@@ -402,15 +425,15 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                         <>
                           {/* Form fields */}
                           <div className="space-y-2">
-                            <Label htmlFor="name" className="text-gray-300">
+                            <Label htmlFor="name" className="text-foreground-muted">
                               Name *
                             </Label>
                             <Input
                               id="name"
                               placeholder="Your name"
-                              className={`bg-gray-800/70 border-gray-600/50 text-white focus:border-[#00ADB5]/50 ${
+                              className={`bg-background-tertiary/70 border-border/50 text-foreground focus:border-primary/50 ${
                                 errors.name && touched.name
-                                  ? "border-orange-400/60 focus:border-orange-400/80"
+                                  ? "border-status-warning/60 focus:border-status-warning/80"
                                   : ""
                               }`}
                               value={formData.name}
@@ -419,23 +442,23 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                               required
                             />
                             {errors.name && touched.name && (
-                              <p className="text-orange-400 text-sm flex items-center gap-1">
+                              <p className="text-status-warning text-sm flex items-center gap-1">
                                 <AlertCircle className="h-3 w-3" />
                                 {errors.name}
                               </p>
                             )}
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor="email" className="text-gray-300">
+                            <Label htmlFor="email" className="text-foreground-muted">
                               Email *
                             </Label>
                             <Input
                               id="email"
                               type="email"
                               placeholder="your.email@example.com"
-                              className={`bg-gray-800/70 border-gray-600/50 text-white focus:border-[#00ADB5]/50 ${
+                              className={`bg-background-tertiary/70 border-border/50 text-foreground focus:border-primary/50 ${
                                 errors.email && touched.email
-                                  ? "border-orange-400/60 focus:border-orange-400/80"
+                                  ? "border-status-warning/60 focus:border-status-warning/80"
                                   : ""
                               }`}
                               value={formData.email}
@@ -444,14 +467,14 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                               required
                             />
                             {errors.email && touched.email && (
-                              <p className="text-orange-400 text-sm flex items-center gap-1">
+                              <p className="text-status-warning text-sm flex items-center gap-1">
                                 <AlertCircle className="h-3 w-3" />
                                 {errors.email}
                               </p>
                             )}
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor="message" className="text-gray-300">
+                            <Label htmlFor="message" className="text-foreground-muted">
                               {isEmploymentCard(service.type)
                                 ? "Tell me about the role *"
                                 : "Project Details *"}
@@ -463,9 +486,9 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                                   ? "Tell me about the position and requirements..."
                                   : `Tell me about your ${service.type} project...`
                               }
-                              className={`bg-gray-800/70 border-gray-600/50 text-white focus:border-[#00ADB5]/50 min-h-[100px] ${
+                              className={`bg-background-tertiary/70 border-border/50 text-foreground focus:border-primary/50 min-h-[100px] ${
                                 errors.message && touched.message
-                                  ? "border-orange-400/60 focus:border-orange-400/80"
+                                  ? "border-status-warning/60 focus:border-status-warning/80"
                                   : ""
                               }`}
                               value={formData.message}
@@ -474,7 +497,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                               required
                             />
                             {errors.message && touched.message && (
-                              <p className="text-orange-400 text-sm flex items-center gap-1">
+                              <p className="text-status-warning text-sm flex items-center gap-1">
                                 <AlertCircle className="h-3 w-3" />
                                 {errors.message}
                               </p>
@@ -483,8 +506,8 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                               <span
                                 className={`text-xs ${
                                   formData.message.length > 2000
-                                    ? "text-orange-400"
-                                    : "text-gray-500"
+                                    ? "text-status-warning"
+                                    : "text-foreground-subtle"
                                 }`}
                               >
                                 {formData.message.length}/2000 characters
