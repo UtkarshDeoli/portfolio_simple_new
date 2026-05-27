@@ -76,23 +76,23 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: index * 0.1 }}
+            transition={{ duration: 0.2, delay: index * 0.05 }}
             viewport={{ once: true }}
             className="group relative"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="relative overflow-hidden rounded-2xl bg-[#393E46]/20 border border-[#393E46]/50 hover:border-[#00ADB5]/40 transition-all duration-500 backdrop-blur-sm h-[340px] flex flex-col">
+            <div className="relative overflow-hidden rounded-2xl bg-background-tertiary/20 border border-border/50 hover:border-primary/40 transition-all duration-500 backdrop-blur-sm h-[340px] flex flex-col">
                 {/* Project Type Badge */}
                 <div className="absolute top-3 left-3 z-10">
-                    <Badge className="bg-[#111010]/90 text-gray-300 border-0 text-[10px] font-medium px-1.5 py-0.5 flex items-center gap-1">
+                    <Badge className="bg-background/90 text-foreground-muted border-0 text-[10px] font-medium px-1.5 py-0.5 flex items-center gap-1">
                         {getProjectTypeIcon(project.type)}
                         {getProjectTypeName(project.type)}
                     </Badge>
                 </div>
 
                 {/* Image Container */}
-                <div className="relative aspect-[4/2.5] overflow-hidden bg-gradient-to-br from-[#393E46]/30 to-[#111010]/30">
+                <div className="relative aspect-[4/2.5] overflow-hidden bg-gradient-to-br from-background-tertiary/30 to-background/30">
                     <Image
                         src={project.image}
                         alt={project.title}
@@ -105,24 +105,27 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                     />
                     
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111010]/90 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
                     
                     {/* Hover Overlay with Actions */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isHovered ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 bg-[#111010]/80 backdrop-blur-sm flex items-center justify-center gap-2"
+                        className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-2"
                     >
                         {project.liveUrl && (
                             <Button
                                 asChild
                                 size="sm"
-                                className="bg-[#00ADB5] hover:bg-[#00ADB5]/80 text-white border-0 shadow-lg text-xs px-3 py-1"
+                                className="bg-primary hover:bg-primary/90 text-white border-0 shadow-lg shadow-primary/50 text-xs px-4 py-2 font-semibold transition-all duration-300 hover:scale-105"
+                                style={{
+                                    animation: isHovered ? 'pulse-glow 2s ease-in-out infinite' : 'none',
+                                }}
                             >
                                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                    <Eye className="h-3 w-3 mr-1" />
-                                    View
+                                    <Eye className="h-3 w-3 mr-1.5" />
+                                    View Demo
                                 </a>
                             </Button>
                         )}
@@ -131,11 +134,11 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                 asChild
                                 size="sm"
                                 variant="outline"
-                                className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm text-xs px-3 py-1"
+                                className="bg-background/80 border-white/30 text-white hover:bg-white/20 hover:border-white/50 hover:scale-105 backdrop-blur-sm text-xs px-4 py-2 font-medium transition-all duration-300 shadow-lg"
                             >
                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Github className="h-3 w-3 mr-1" />
-                                    Code
+                                    <Github className="h-3 w-3 mr-1.5" />
+                                    View Code
                                 </a>
                             </Button>
                         )}
@@ -146,10 +149,10 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                 <div className="flex flex-col flex-1 p-3">
                     {/* Title and Description - Fixed height area */}
                     <div className="flex-1 min-h-0">
-                        <h3 className="text-base font-semibold text-white group-hover:text-[#00ADB5] transition-colors duration-300 line-clamp-1 mb-1">
+                        <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1 mb-1">
                             {project.title}
                         </h3>
-                        <p className="text-gray-500 text-[10px] leading-relaxed line-clamp-2">
+                        <p className="text-foreground-subtle text-[10px] leading-relaxed line-clamp-2">
                             {project.description}
                         </p>
                     </div>
@@ -159,13 +162,13 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                         {project.tags.slice(0, 4).map((tag, tagIndex) => (
                             <span
                                 key={tagIndex}
-                                className="text-xs px-2 py-0.5 bg-[#393E46]/50 text-gray-300 rounded text-[10px] font-mono transition-colors hover:bg-[#00ADB5]/20 hover:text-[#00ADB5]"
+                                className="text-xs px-2 py-0.5 bg-background-tertiary/50 text-foreground-muted rounded text-[10px] font-mono transition-colors hover:bg-primary/20 hover:text-primary"
                             >
                                 {tag}
                             </span>
                         ))}
                         {project.tags.length > 4 && (
-                            <span className="text-xs px-2 py-0.5 text-gray-500 font-mono text-[10px]">
+                            <span className="text-xs px-2 py-0.5 text-foreground-subtle font-mono text-[10px]">
                                 +{project.tags.length - 4}
                             </span>
                         )}
@@ -181,7 +184,7 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                         asChild
                                         variant="ghost"
                                         size="sm"
-                                        className="text-gray-400 hover:text-[#00ADB5] hover:bg-[#00ADB5]/10 p-1 h-auto text-xs flex-shrink-0"
+                                        className="text-foreground-muted hover:text-primary hover:bg-primary/10 p-1 h-auto text-xs flex-shrink-0"
                                     >
                                         <a href={project.appStoreUrl} target="_blank" rel="noopener noreferrer">
                                             <Smartphone className="h-3 w-3" />
@@ -194,7 +197,7 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                         asChild
                                         variant="ghost"
                                         size="sm"
-                                        className="text-gray-400 hover:text-[#00ADB5] hover:bg-[#00ADB5]/10 p-1 h-auto text-xs flex-shrink-0"
+                                        className="text-foreground-muted hover:text-primary hover:bg-primary/10 p-1 h-auto text-xs flex-shrink-0"
                                     >
                                         <a href={project.playStoreUrl} target="_blank" rel="noopener noreferrer">
                                             <Smartphone className="h-3 w-3" />
@@ -211,7 +214,7 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                 asChild
                                 variant="ghost"
                                 size="sm"
-                                className="text-gray-400 hover:text-[#00ADB5] hover:bg-[#00ADB5]/10 p-1 h-auto text-xs flex-shrink-0"
+                                className="text-foreground-muted hover:text-primary hover:bg-primary/10 p-1 h-auto text-xs flex-shrink-0"
                             >
                                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                                     <ExternalLink className="h-3 w-3" />
@@ -226,7 +229,7 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                 asChild
                                 variant="ghost"
                                 size="sm"
-                                className="text-gray-400 hover:text-white hover:bg-gray-700/50 p-1 h-auto text-xs flex-shrink-0"
+                                className="text-foreground-muted hover:text-foreground hover:bg-background-tertiary/50 p-1 h-auto text-xs flex-shrink-0"
                             >
                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                     <Github className="h-3 w-3" />
@@ -252,8 +255,8 @@ export default function FeaturedProjectsSection({ projects }: FeaturedProjectsSe
         >
             {/* Section Header */}
             <div className="mb-8">
-                <h2 className="text-2xl font-bold text-white mb-2">Featured Projects</h2>
-                <p className="text-gray-400 text-sm">A showcase of my recent work and side projects</p>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Featured Projects</h2>
+                <p className="text-foreground-muted text-sm">A showcase of my recent work and side projects</p>
             </div>
 
             {/* Horizontal Scrollable Container */}
