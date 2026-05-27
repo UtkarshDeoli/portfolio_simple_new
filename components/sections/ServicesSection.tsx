@@ -244,46 +244,23 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   const getServiceColor = useCallback((type: string) => {
     switch (type) {
       case "employment":
-        return "bg-status-info/10 border-status-info/20 hover:border-status-info/40";
+          return "bg-green-900/20 border-green-900/60 hover:border-green-800";
       case "website":
-        return "bg-status-available/10 border-status-available/20 hover:border-status-available/40";
+          return "bg-blue-900/20 border-blue-900/60 hover:border-blue-800";
       case "mobile":
-        return "bg-purple-500/10 border-purple-500/20 hover:border-purple-400/40";
+          return "bg-violet-900/20 border-violet-900/60 hover:border-violet-800";
       case "embedded":
-        return "bg-status-warning/10 border-status-warning/20 hover:border-status-warning/40";
+          return "bg-amber-900/20 border-amber-900/60 hover:border-amber-800";
       case "ai":
-        return "bg-status-busy/10 border-status-busy/20 hover:border-status-busy/40";
+          return "bg-purple-500/10 border-purple-700/40 hover:border-purple-900";
       case "chatbot":
-        return "bg-pink-500/10 border-pink-500/20 hover:border-pink-400/40";
+          return "bg-pink-900/20 border-pink-900/60 hover:border-pink-800";
       case "ecommerce":
-        return "bg-status-warning/10 border-status-warning/20 hover:border-status-warning/40";
+          return "bg-orange-900/20 border-orange-900/60 hover:border-orange-800";
       case "consulting":
-        return "bg-primary/10 border-primary/20 hover:border-primary/40";
+          return "bg-cyan-900/20 border-cyan-900/60 hover:border-cyan-800";
       default:
-        return "bg-background-tertiary/10 border-border/20 hover:border-border/40";
-    }
-  }, []);
-
-  const getServiceButtonColor = useCallback((type: string) => {
-    switch (type) {
-      case "employment":
-        return "hover:bg-status-info/20 hover:border-status-info/50";
-      case "website":
-        return "hover:bg-status-available/20 hover:border-status-available/50";
-      case "mobile":
-        return "hover:bg-purple-500/20 hover:border-purple-500/50";
-      case "embedded":
-        return "hover:bg-status-warning/20 hover:border-status-warning/50";
-      case "ai":
-        return "hover:bg-status-busy/20 hover:border-status-busy/50";
-      case "chatbot":
-        return "hover:bg-pink-500/20 hover:border-pink-500/50";
-      case "ecommerce":
-        return "hover:bg-status-warning/20 hover:border-status-warning/50";
-      case "consulting":
-        return "hover:bg-primary/20 hover:border-primary/50";
-      default:
-        return "hover:bg-background-tertiary/20 hover:border-border/50";
+          return "bg-slate-900/30 border-slate-900 hover:border-slate-800";
     }
   }, []);
 
@@ -371,10 +348,10 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               {/* CTA Button */}
               <div className="mt-auto">
                 <Dialog>
-                    <DialogTrigger asChild>
+                  <DialogTrigger asChild>
                     <Button
                       variant="neomorphicOutline"
-                      className={`w-full transition-all duration-300 ${getServiceButtonColor(service.type)}`}
+                      className="w-full"
                       onClick={() =>
                         setFormData((prev) => ({
                           ...prev,

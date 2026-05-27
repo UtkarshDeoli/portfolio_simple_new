@@ -1,6 +1,5 @@
 import React from "react"
 import "@/app/globals.css"
-import "@/app/projects-animation.css"
 import { Providers } from "@/components/providers"
 import { Inter } from "next/font/google"
 import type { Metadata } from "next"
@@ -214,7 +213,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={`${inter.className} jetbrains-mono`} suppressHydrationWarning>
         <Providers>
           {children}
         </Providers>

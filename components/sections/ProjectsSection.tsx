@@ -42,7 +42,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             viewport={{ once: true }}
             className="py-16"
         >
-            <h2 className="text-2xl font-bold mb-12 text-white">Projects</h2>
+            <h2 className="text-2xl font-bold mb-12 text-foreground">Projects</h2>
             <div className="space-y-8 ">
                 {projects.slice(0, visibleProjects).map((project, index) => (
                     <motion.div
@@ -54,12 +54,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                         className="group"
                     >
                         <div className="flex justify-between items-start mb-3 ">
-                            <h3 className="text-lg font-semibold text-white group-hover:text-[#00ADB5] transition-colors">
+                            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                                 {project.name}
                             </h3>
                             <div className="flex gap-2">
                                 {project.github && (
-                                    <Button asChild variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-[#00ADB5]/20 h-8 px-2">
+                                    <Button asChild variant="ghost" size="sm" className="text-foreground-muted hover:text-foreground hover:bg-primary/20 h-8 px-2">
                                         <a href={project.github} target="_blank" rel="noopener noreferrer"  className="flex items-center gap-1">
                                             <Github className="h-4 w-4" /> GitHub
                                             
@@ -67,7 +67,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                                     </Button>
                                 )}
                                 {project.demo && (
-                                    <Button asChild variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-[#00ADB5]/50 h-8 px-2">
+                                    <Button asChild variant="ghost" size="sm" className="text-foreground-muted hover:text-foreground hover:bg-primary/50 h-8 px-2">
                                         <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                                             <Link className="h-4 w-4" /> View
                                         </a>
@@ -75,12 +75,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                                 )}
                             </div>
                         </div>
-                        <p className="text-gray-400 mb-4 leading-relaxed">
+                        <p className="text-foreground-muted mb-4 leading-relaxed">
                             {project.description}
                             {project.details && (
                                 <button
                                     onClick={() => toggleExpanded(index)}
-                                    className="inline-flex text-regular items-center gap-1 ml-1 text-[#00ADB5] hover:text-[#00ADB5]/70 transition-colors"
+                                    className="inline-flex text-regular items-center gap-1 ml-1 text-primary hover:text-primary/70 transition-colors"
                                 >
                                     {expandedProjects.includes(index) ? (
                                         <>
@@ -106,10 +106,10 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden mb-4"
                             >
-                                <ul className="space-y-2 text-gray-400 text-sm">
+                                <ul className="space-y-2 text-foreground-muted text-sm">
                                     {project.details.map((detail, detailIndex) => (
                                         <li key={detailIndex} className="flex items-start gap-2">
-                                            <span className="text-[#00ADB5] mt-1.5 text-xs">•</span>
+                                            <span className="text-primary mt-1.5 text-xs">•</span>
                                             <span>{detail}</span>
                                         </li>
                                     ))}
@@ -121,7 +121,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                             {project.technologies.map((tech, techIndex) => (
                                 <span 
                                     key={techIndex} 
-                                    className="text-xs px-2 py-1 bg-[#393E46]/50 text-gray-400 font-mono rounded-sm"
+                                    className="text-xs px-2 py-1 bg-background-tertiary/50 text-foreground-muted font-mono rounded-sm"
                                 >
                                     {tech}
                                 </span>
@@ -133,7 +133,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             {visibleProjects < projects.length && (
                 <div className="flex justify-center">
                     <button
-                        className="mt-8 px-5 py-2 rounded-md text-white hover:underline hover:text-[#00ADB5] transition-colors duration-700"
+                        className="mt-8 px-5 py-2 rounded-md text-foreground hover:underline hover:text-primary transition-colors duration-700"
                         onClick={showMore}
                     >
                         View More

@@ -118,14 +118,11 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                             <Button
                                 asChild
                                 size="sm"
-                                className="bg-primary hover:bg-primary/90 text-white border-0 shadow-lg shadow-primary/50 text-xs px-4 py-2 font-semibold transition-all duration-300 hover:scale-105"
-                                style={{
-                                    animation: isHovered ? 'pulse-glow 2s ease-in-out infinite' : 'none',
-                                }}
+                                className="bg-primary hover:bg-primary/80 text-white border-0 shadow-lg text-xs px-3 py-1"
                             >
                                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                    <Eye className="h-3 w-3 mr-1.5" />
-                                    View Demo
+                                    <Eye className="h-3 w-3 mr-1" />
+                                    View
                                 </a>
                             </Button>
                         )}
@@ -134,11 +131,11 @@ const ProjectCard = ({ project, index }: { project: FeaturedProject; index: numb
                                 asChild
                                 size="sm"
                                 variant="outline"
-                                className="bg-background/80 border-white/30 text-white hover:bg-white/20 hover:border-white/50 hover:scale-105 backdrop-blur-sm text-xs px-4 py-2 font-medium transition-all duration-300 shadow-lg"
+                                className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm text-xs px-3 py-1"
                             >
                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Github className="h-3 w-3 mr-1.5" />
-                                    View Code
+                                    <Github className="h-3 w-3 mr-1" />
+                                    Code
                                 </a>
                             </Button>
                         )}

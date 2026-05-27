@@ -12,7 +12,7 @@ import { experiences, projects, featuredProjects, techStackWithIcons, services }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#111010] text-[#EEEEEE]">
+    <div className="min-h-screen bg-background text-foreground">
       {/* <Header /> */}
       
       <main className="pt-12 pb-16">

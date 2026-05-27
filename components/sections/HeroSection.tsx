@@ -24,29 +24,29 @@ export default function HeroSection() {
         {/* Status and Action Buttons */}
         <a
           href="mailto:utkarsh.deoli@gmail.com"
-          className="inline-flex items-center bg-transparent border-[#00ADB5]/30 text-[#00ADB5] hover:bg-[#00ADB5]/10 rounded-lg text-sm font-medium p-2 transition-colors duration-200"
+          className="inline-flex items-center bg-transparent border-primary/30 text-primary hover:bg-primary/10 rounded-lg text-sm font-medium p-2 transition-colors duration-200"
         >
-          <div className="w-2 h-2 bg-[#ff6b6b] rounded-full animate-pulse mr-2"></div>
+          <div className="w-2 h-2 bg-status-busy rounded-full animate-pulse mr-2"></div>
           Available for new opportunities
         </a>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground">
           Hey, I'm Utkarsh
         </h1>
-        <p className="text-lg text-gray-400 leading-relaxed max-w-xl text-left">
-          India-based Versatile and high agency developer with extensive
+        <p className="text-lg text-foreground-muted leading-relaxed max-w-xl text-left">
+          Versatile and high agency developer with extensive
           experience in building scalable, efficient, and user-centric
           applications.
         </p>
 
         {/* Social Links Section */}
         <div className="pt-6">
-          <p className="text-gray-400 text-sm mb-4">Connect with me</p>
+          <p className="text-foreground-muted text-sm mb-4">Connect with me</p>
           <div className="flex flex-wrap items-center gap-3">
             <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a href="mailto:utkarsh.deoli@gmail.com">
                 <Mail className="h-4 w-4" />
@@ -57,7 +57,7 @@ export default function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a
                 href="https://twitter.com/utkarshdeoli"
@@ -72,7 +72,7 @@ export default function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a
                 href="https://github.com/utkarshdeoli"
@@ -87,7 +87,7 @@ export default function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a
                 href="https://linkedin.com/in/utkarshdeoli"
@@ -102,7 +102,7 @@ export default function HeroSection() {
             {/* <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a href="https://leetcode.com/sagemodeutkarsh" target="_blank" rel="noopener noreferrer">
                 <Code className="h-4 w-4" />
@@ -113,7 +113,7 @@ export default function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
+              className="bg-background-secondary/50 border-border text-foreground-muted hover:bg-card-hover hover:text-foreground rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2"
             >
               <a
                 href="https://utkarshdeoli.in"

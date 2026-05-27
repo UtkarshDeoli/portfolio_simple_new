@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, MessageCircle, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { Mail, Send, CheckCircle } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
 interface ContactFormProps {
@@ -88,14 +88,16 @@ export default function ContactForm({ type, title, description, icon }: ContactF
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="relative"
     >
-      <Card className="bg-[#393E46]/20 border-[#393E46] hover:border-[#00ADB5]/50 transition-colors">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-xl blur-xl" />
+      <Card className="relative glass">
         <CardHeader>
-          <CardTitle className="flex items-center gap-3 text-white">
-            {icon}
+          <CardTitle className="flex items-center gap-3 text-foreground">
+            <span className="p-2 rounded-lg bg-primary/20">{icon}</span>
             {title}
           </CardTitle>
-          <CardDescription className="text-gray-400">
+          <CardDescription className="text-foreground-muted">
             {description}
           </CardDescription>
         </CardHeader>
@@ -106,80 +108,109 @@ export default function ContactForm({ type, title, description, icon }: ContactF
               animate={{ opacity: 1, scale: 1 }}
               className="flex flex-col items-center justify-center py-8 text-center"
             >
-              <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
-              <p className="text-gray-400">Thank you for reaching out. I'll get back to you soon.</p>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                className="p-4 rounded-full glass mb-4"
+              >
+                <CheckCircle className="h-12 w-12 text-status-available" />
+              </motion.div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Message Sent!</h3>
+              <p className="text-foreground-muted">Thank you for reaching out. I'll get back to you soon.</p>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <Label htmlFor={`${type}-name`} className="text-gray-300">Name *</Label>
-                  <Input
-                    id={`${type}-name`}
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    required
-                    className="bg-[#393E46]/30 border-[#393E46] text-white placeholder:text-gray-500 focus:border-[#00ADB5]"
-                  />
+                  <Label htmlFor={`${type}-name`} className="text-foreground-muted text-sm font-medium">Name *</Label>
+                  <div className="relative group">
+                    <Input
+                      id={`${type}-name`}
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your name"
+                      required
+                      className="glass-input text-foreground placeholder:text-foreground-subtle pr-10"
+                    />
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-focus-within:opacity-100 transition-opacity">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                    </div>
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor={`${type}-email`} className="text-gray-300">Email *</Label>
-                  <Input
-                    id={`${type}-email`}
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                    required
-                    className="bg-[#393E46]/30 border-[#393E46] text-white placeholder:text-gray-500 focus:border-[#00ADB5]"
-                  />
+                  <Label htmlFor={`${type}-email`} className="text-foreground-muted text-sm font-medium">Email *</Label>
+                  <div className="relative group">
+                    <Input
+                      id={`${type}-email`}
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your.email@example.com"
+                      required
+                      className="glass-input text-foreground placeholder:text-foreground-subtle pr-10"
+                    />
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-focus-within:opacity-100 transition-opacity">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor={`${type}-subject`} className="text-gray-300">Subject</Label>
-                <Input
-                  id={`${type}-subject`}
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What's this about?"
-                  className="bg-[#393E46]/30 border-[#393E46] text-white placeholder:text-gray-500 focus:border-[#00ADB5]"
-                />
+                <Label htmlFor={`${type}-subject`} className="text-foreground-muted text-sm font-medium">Subject</Label>
+                <div className="relative group">
+                  <Input
+                    id={`${type}-subject`}
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What's this about?"
+                    className="glass-input text-foreground placeholder:text-foreground-subtle pr-10"
+                  />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-focus-within:opacity-100 transition-opacity">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                  </div>
+                </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor={`${type}-message`} className="text-gray-300">Message *</Label>
-                <Textarea
-                  id={`${type}-message`}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project or what you'd like to discuss..."
-                  rows={5}
-                  required
-                  className="bg-[#393E46]/30 border-[#393E46] text-white placeholder:text-gray-500 focus:border-[#00ADB5] resize-none"
-                />
+                <Label htmlFor={`${type}-message`} className="text-foreground-muted text-sm font-medium">Message *</Label>
+                <div className="relative group">
+                  <Textarea
+                    id={`${type}-message`}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project or what you'd like to discuss..."
+                    rows={5}
+                    required
+                    className="glass-input text-foreground placeholder:text-foreground-subtle resize-none"
+                  />
+                  <div className="absolute bottom-3 right-3 opacity-0 group-focus-within:opacity-100 transition-opacity">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                  </div>
+                </div>
               </div>
-              <Button
-                type="submit"
-                disabled={!isFormValid || isSubmitting}
-                className="w-full bg-[#00ADB5] hover:bg-[#00ADB5]/80 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Sending...
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <Send className="h-4 w-4" />
-                    Send {type === 'email' ? 'Email' : 'Message'}
-                  </div>
-                )}
-              </Button>
+              <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                <Button
+                  type="submit"
+                  disabled={!isFormValid || isSubmitting}
+                  className="w-full bg-primary/80 hover:bg-primary text-white disabled:opacity-50 disabled:cursor-not-allowed glass shadow-lg shadow-primary/20"
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Send className="h-4 w-4" />
+                      Send {type === 'email' ? 'Email' : 'Message'}
+                    </div>
+                  )}
+                </Button>
+              </motion.div>
             </form>
           )}
         </CardContent>
@@ -198,7 +229,7 @@ export function ContactCards() {
       viewport={{ once: true }}
       className="py-16"
     >
-      <h2 className="text-2xl font-bold mb-12 text-white">Get In Touch</h2>
+      <h2 className="text-2xl font-bold mb-12 text-foreground">Get In Touch</h2>
       <div className="grid grid-cols-1  gap-8">
         {/* <ContactForm
           type="email"
